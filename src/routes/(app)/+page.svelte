@@ -1,2 +1,13 @@
-<h1>Welcome to SvelteKit</h1>
-<p>Visit <a href="https://kit.svelte.dev">kit.svelte.dev</a> to read the documentation</p>
+<script>
+	import Menu from '../components/Menu.svelte';
+	import Timer from '../components/Timer.svelte';
+</script>
+
+<section>
+	<div class="me-3">
+		<Timer />
+	</div>
+	<div class="py-4">
+		<Menu />
+	</div>
+</section>
