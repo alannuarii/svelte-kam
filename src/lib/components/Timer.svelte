@@ -18,7 +18,7 @@
 	}, 1000);
 </script>
 
-<div class="text-end mb-3">
+<div class="text-end">
 	<h5>{date(today)} {time} WITA</h5>
 </div>
 

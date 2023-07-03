@@ -1,6 +1,6 @@
 <script>
 	import disable from '../../lib/img/disable.gif';
-	import Header from '../components/Header.svelte';
+	import Header from '../../lib/components/Header.svelte';
 </script>
 
 <svelte:head>
