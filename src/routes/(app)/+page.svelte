@@ -12,10 +12,10 @@
 		<Timer />
 	</div>
 	<div class="mx-3 py-3 row">
-		<div class="col-8">
+		<div class="col-9">
 			<Personil />
 		</div>
-		<div class="col-4">
+		<div class="col-3 d-flex align-items-center">
 			<Times />
 		</div>
 	</div>

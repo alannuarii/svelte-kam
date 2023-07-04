@@ -9,7 +9,9 @@
 </svelte:head>
 
 <main id="mobile" class="d-sm-none">
-	<Header />
+	<div>
+		<Header />
+	</div>
 	<div class="mt-4">
 		<slot />
 	</div>

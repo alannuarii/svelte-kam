@@ -19,9 +19,9 @@
 		font-weight: 700;
 	}
 	i {
-		font-size: 40px;
+		font-size: 30px;
 		position: absolute;
-		top: -30%;
+		top: -25%;
 		right: -2%;
 		color: #2ec4b6;
 	}

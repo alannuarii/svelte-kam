@@ -1,8 +1,12 @@
+<script>
+	import DropdownHeader from '../components/DropdownHeader.svelte';
+</script>
+
 <nav class="navbar shadow-sm">
 	<div class="container-fluid">
 		<a class="navbar-brand" href="/"><i class="fi fi-sr-shield-check" /></a>
 		<p class="text-center ms-auto">Security App</p>
-		<i class="fi fi-rr-menu-dots-vertical ms-auto" />
+		<div class="ms-auto"><DropdownHeader /></div>
 	</div>
 </nav>
 
