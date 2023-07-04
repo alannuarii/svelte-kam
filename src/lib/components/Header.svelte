@@ -1,6 +1,8 @@
-<nav class="navbar shadow-sm">
+<nav class="navbar shadow-sm ms-2">
 	<div class="container-fluid">
-		<a class="navbar-brand d-flex align-items-start" href="/"><i class="fi fi-sr-shield-check" /></a>
+		<a class="navbar-brand" href="/"><i class="fi fi-sr-shield-check" /></a>
+		<p class="text-center ms-auto">Security App</p>
+		<i class="fi fi-rr-menu-dots-vertical ms-auto" />
 	</div>
 </nav>
 
@@ -8,12 +10,21 @@
 	nav {
 		height: 70px;
 		background-color: #ffd59d;
+		border-radius: 30px 0 0 0;
 	}
-	a{
+	a {
 		margin-top: -10px;
+		position: absolute;
+		top: 0%;
+		left: -4%;
 	}
-	i{
-		font-size: 80px;
+	.fi-sr-shield-check {
+		font-size: 90px;
 		color: #2b2d42;
+	}
+	p {
+		margin: 0;
+		font-size: 5vw;
+		font-weight: 700;
 	}
 </style>
