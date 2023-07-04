@@ -1,4 +1,4 @@
-<nav class="navbar shadow-sm ms-2">
+<nav class="navbar shadow-sm">
 	<div class="container-fluid">
 		<a class="navbar-brand" href="/"><i class="fi fi-sr-shield-check" /></a>
 		<p class="text-center ms-auto">Security App</p>
