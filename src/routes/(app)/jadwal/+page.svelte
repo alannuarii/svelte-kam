@@ -2,9 +2,10 @@
 	import TitleDate from '../../../lib/components/TitleDate.svelte';
 	import { jadwalPiket } from '../../../lib/js/jadwal';
 	import { namaSecurity } from '../../../lib/js/nama';
+	import { getToday } from '../../../lib/js/date';
 	import { onMount } from 'svelte';
 
-	let tanggal = new Date().toISOString().slice(0, 10);
+	let tanggal = getToday();
 	let pagi = [];
 	let sore = [];
 	let malam = [];
@@ -84,10 +85,10 @@
 		margin-top: -3px;
 		margin-bottom: 10px;
 	}
-	.nama{
+	.nama {
 		background-color: #cbf3f0;
 	}
-	.border{
+	.border {
 		border-radius: 20px;
 	}
 </style>
