@@ -10,13 +10,12 @@
 	nav {
 		height: 70px;
 		background-color: #ffd59d;
-		border-radius: 30px 0 0 0;
 	}
 	a {
 		margin-top: -10px;
 		position: absolute;
-		top: 0%;
-		left: -4%;
+		top: 10%;
+		left: -2%;
 	}
 	.fi-sr-shield-check {
 		font-size: 90px;
