@@ -13,8 +13,8 @@
 			<i class="fi fi-rr-grip-lines" />
 		</div>
 		<OffcanvasMenuBottom />
-		<div class="btn camera">
-			<i class="fi fi-rr-camera" />
+		<div class="camera">
+			<i class="fi fi-rr-camera btn" />
 		</div>
 		<div class="btn">
 			<i class="fi fi-rr-calendar-clock" />
@@ -29,7 +29,7 @@
 		background-color: #ffecd4;
 	}
 	i {
-		padding: 5px 5px;
+		padding: 5px 15px;
 		/* border-radius: 50%; */
 		font-size: 25px;
 		/* background-color: #ffd59d; */
@@ -48,12 +48,7 @@
 		background-color: #ffffff;
 		/* padding: 0px 5px; */
 	}
-	.camera:active {
-		background-color: #ffffff;
-	}
-	.camera:focus {
-		background-color: #ffffff;
-	}
+
 	.btn {
 		border: none;
 	}
