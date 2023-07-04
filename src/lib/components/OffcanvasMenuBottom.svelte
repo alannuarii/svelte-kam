@@ -3,22 +3,22 @@
 		{
 			name: 'Laporan Patroli',
 			path: '/patroli/laporan',
-			icon: 'bi-arrow-repeat'
+			icon: 'fi fi-rr-refresh'
 		},
 		{
 			name: 'Laporan Apel',
 			path: '/apel/laporan',
-			icon: 'bi-people'
+			icon: 'fi fi-rr-users-alt'
 		},
 		{
 			name: 'Laporan CCTV',
 			path: '/cctv/laporan',
-			icon: 'bi-camera-video'
+			icon: 'fi fi-rr-camera-cctv'
 		},
 		{
 			name: 'Laporan Penerimaan Tamu',
 			path: '/buku-tamu/laporan',
-			icon: 'bi-person-square'
+			icon: 'fi fi-rr-person-simple'
 		}
 	];
 </script>
@@ -30,13 +30,7 @@
 	aria-labelledby="offcanvasBottomLabel"
 >
 	<div class="offcanvas-header">
-		<!-- <h5 class="offcanvas-title" id="offcanvasBottomLabel">Menu</h5> -->
-		<button
-			type="button"
-			class="btn-close ms-auto"
-			data-bs-dismiss="offcanvas"
-			aria-label="Close"
-		/>
+		<i class="fi fi-rr-cross btn ms-auto" data-bs-dismiss="offcanvas" aria-label="Close" />
 	</div>
 	<div class="offcanvas-body small">
 		<div class="list-group list-group-flush">
@@ -53,6 +47,8 @@
 	a {
 		text-decoration: none;
 		font-size: 17px;
+		border: none;
+		padding: 12px 15px;
 	}
 	.offcanvas {
 		border-radius: 20px 20px 0 0;
@@ -60,5 +56,12 @@
 	}
 	.offcanvas .offcanvas-body {
 		overflow: hidden;
+	}
+	.btn {
+		border: none;
+	}
+	.offcanvas-header {
+		height: 20px;
+		padding-top: 30px;
 	}
 </style>

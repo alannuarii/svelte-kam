@@ -17,7 +17,7 @@
 			<i class="fi fi-rr-camera btn" />
 		</div>
 		<div class="btn">
-			<i class="fi fi-rr-calendar-clock" />
+			<a href="/jadwal"><i class="fi fi-rr-calendar-clock" /></a>
 		</div>
 	</div>
 </nav>
@@ -51,5 +51,8 @@
 
 	.btn {
 		border: none;
+	}
+	a{
+		text-decoration: none;
 	}
 </style>

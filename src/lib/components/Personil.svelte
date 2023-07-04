@@ -1,4 +1,4 @@
-<h6>Petugas Shift</h6>
+<h6>Petugas Piket</h6>
 <div class="d-flex align-items-center">
 	<i class="fi fi-sr-user" />
 	<p>Imran Mokodompit</p>
