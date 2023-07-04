@@ -19,7 +19,7 @@
 		background-color: #ffecd4;
 	}
 	i {
-		padding: 13px 16px;
+		padding: 13px 15px;
 		border-radius: 50%;
 		font-size: 20px;
 		background-color: #ffd59d;
