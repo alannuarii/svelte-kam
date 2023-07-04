@@ -21,7 +21,7 @@
 
 <style>
 	i {
-		padding: 15px 19px;
+		padding: 15px 18px;
 		border-radius: 50%;
 		font-size: 30px;
 		background-color: #cbf3f0;
