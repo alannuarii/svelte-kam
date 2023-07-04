@@ -30,7 +30,7 @@
 	p {
 		margin: 0;
 		font-size: 3vw;
-		margin-top: -5px;
+		margin-top: -7px;
 		font-weight: 300;
 	}
 </style>

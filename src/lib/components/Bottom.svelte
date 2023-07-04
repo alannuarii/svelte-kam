@@ -30,7 +30,7 @@
 		border: 10px solid #ffffff;
 		border-radius: 50%;
 		background-color: #ffffff;
-		padding: 0px 7px;
+		padding: 0px 5px;
 	}
 	.camera {
 		position: absolute;
