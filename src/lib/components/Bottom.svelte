@@ -26,9 +26,11 @@
 		color: #ff9f1c;
 	}
 	.fi-rr-camera {
-		font-size: 40px;
+		font-size: 50px;
 		border: 10px solid #ffffff;
 		border-radius: 50%;
+		background-color: #ffffff;
+		padding: 0px 7px;
 	}
 	.camera {
 		position: absolute;

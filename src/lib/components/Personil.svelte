@@ -18,5 +18,6 @@
         margin-left: 5px;
         color: #33CCCC;
         font-weight: 500;
+        font-size: 4vw;
     }
 </style>
