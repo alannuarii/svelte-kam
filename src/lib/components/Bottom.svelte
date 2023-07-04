@@ -4,20 +4,20 @@
 
 <nav class="navbar fixed-bottom shadow">
 	<div class="container-fluid">
-		<div class="text-center">
-			<i
-				class="fi fi-rr-grip-lines btn"
-				data-bs-toggle="offcanvas"
-				data-bs-target="#menuBottom"
-				aria-controls="offcanvasBottom"
-			/>
-			<OffcanvasMenuBottom />
+		<div
+			class="btn"
+			data-bs-toggle="offcanvas"
+			data-bs-target="#menuBottom"
+			aria-controls="offcanvasBottom"
+		>
+			<i class="fi fi-rr-grip-lines" />
 		</div>
-		<div class="text-center camera">
-			<i class="fi fi-rr-camera btn" />
+		<OffcanvasMenuBottom />
+		<div class="btn camera">
+			<i class="fi fi-rr-camera" />
 		</div>
-		<div class="text-center">
-			<i class="fi fi-rr-calendar-clock btn" />
+		<div class="btn">
+			<i class="fi fi-rr-calendar-clock" />
 		</div>
 	</div>
 </nav>
@@ -29,12 +29,11 @@
 		background-color: #ffecd4;
 	}
 	i {
-		padding: 5px 15px;
+		padding: 5px 7px;
 		/* border-radius: 50%; */
 		font-size: 25px;
 		/* background-color: #ffd59d; */
 		color: #ff9f1c;
-		border: none;
 	}
 	.fi-rr-camera {
 		font-size: 50px;
@@ -48,5 +47,11 @@
 		border-radius: 50%;
 		background-color: #ffffff;
 		/* padding: 0px 5px; */
+	}
+	.camera:active{
+		background-color: #ffffff;
+	}
+	.btn{
+		border: none;
 	}
 </style>
