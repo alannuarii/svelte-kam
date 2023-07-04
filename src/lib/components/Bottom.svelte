@@ -1,13 +1,23 @@
+<script>
+	import OffcanvasMenuBottom from './OffcanvasMenuBottom.svelte';
+</script>
+
 <nav class="navbar fixed-bottom shadow">
 	<div class="container-fluid">
 		<div class="text-center">
-			<i class="fi fi-rr-calendar-clock" />
+			<i
+				class="fi fi-rr-grip-lines btn"
+				data-bs-toggle="offcanvas"
+				data-bs-target="#menuBottom"
+				aria-controls="offcanvasBottom"
+			/>
+			<OffcanvasMenuBottom />
 		</div>
 		<div class="text-center camera">
-			<i class="fi fi-rr-camera" />
+			<i class="fi fi-rr-camera btn" />
 		</div>
 		<div class="text-center">
-			<i class="fi fi-rr-calendar-clock" />
+			<i class="fi fi-rr-calendar-clock btn" />
 		</div>
 	</div>
 </nav>
@@ -19,23 +29,24 @@
 		background-color: #ffecd4;
 	}
 	i {
-		padding: 13px 15px;
-		border-radius: 50%;
-		font-size: 20px;
-		background-color: #ffd59d;
+		padding: 5px 15px;
+		/* border-radius: 50%; */
+		font-size: 25px;
+		/* background-color: #ffd59d; */
 		color: #ff9f1c;
+		border: none;
 	}
 	.fi-rr-camera {
 		font-size: 50px;
-		border: 10px solid #ffffff;
-		border-radius: 50%;
-		background-color: #ffffff;
-		padding: 0px 5px;
 	}
 	.camera {
 		position: absolute;
 		top: 20%;
 		left: 50%;
 		transform: translate(-50%, -50%);
+		/* border: 10px solid #ffffff; */
+		border-radius: 50%;
+		background-color: #ffffff;
+		/* padding: 0px 5px; */
 	}
 </style>
