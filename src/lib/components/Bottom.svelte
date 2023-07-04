@@ -29,7 +29,7 @@
 		background-color: #ffecd4;
 	}
 	i {
-		padding: 5px 7px;
+		padding: 5px 5px;
 		/* border-radius: 50%; */
 		font-size: 25px;
 		/* background-color: #ffd59d; */
@@ -48,10 +48,13 @@
 		background-color: #ffffff;
 		/* padding: 0px 5px; */
 	}
-	.camera:active{
+	.camera:active {
 		background-color: #ffffff;
 	}
-	.btn{
+	.camera:focus {
+		background-color: #ffffff;
+	}
+	.btn {
 		border: none;
 	}
 </style>
