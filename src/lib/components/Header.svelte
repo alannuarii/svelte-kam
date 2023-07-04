@@ -15,7 +15,6 @@
 		margin-top: -10px;
 		position: absolute;
 		top: 10%;
-		left: -2%;
 	}
 	.fi-sr-shield-check {
 		font-size: 90px;
