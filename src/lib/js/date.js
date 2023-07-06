@@ -32,9 +32,9 @@ export function date(tanggal) {
 }
 
 export const getToday = () => {
-	let tomorrow = new Date();
-	tomorrow.setHours(tomorrow.getHours() + 8);
-	tomorrow = tomorrow.toISOString().slice(0, 10);
-	return tomorrow;
+	let today = new Date();
+	today.setHours(today.getHours() + 8);
+	today = today.toISOString().slice(0, 10);
+	return today;
 	// 2023-02-21 tanggal hari ini
 };

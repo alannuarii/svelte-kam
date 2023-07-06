@@ -1,4 +1,7 @@
-export function jadwalPiket(tanggal) {
+import { getToday } from './date';
+import { namaSecurity } from './nama';
+
+export const jadwalPiket = (tanggal) => {
 	const numberOfDays = 365;
 	const imran = [0, 'p', 'p', 'p', 'p', 'p', 0];
 	const faisal = [0, 'p', 'p', 's', 's', 'm', 'm', 0, 0, 'm'];
@@ -39,6 +42,30 @@ export function jadwalPiket(tanggal) {
 		refi: refiCycle[index],
 		jonly: jonlyCycle[index]
 	};
-}
+};
 
-// console.log(jadwal('2023-02-24'));
+export const rentangWaktu = () => {
+	const sekarang = new Date();
+	const jam = sekarang.getHours();
+	// const menit = sekarang.getMinutes();
+
+	if (jam >= 0 && jam <= 8) {
+		return 'm';
+	} else if (jam >= 8 && jam <= 16) {
+		return 'p';
+	} else if (jam >= 16 && jam <= 24) {
+		return 's';
+	}
+};
+
+export const getPiket = () => {
+	const today = getToday();
+	const object = jadwalPiket(today);
+	const value = rentangWaktu();
+	const arrName = Object.keys(object).filter((key) => object[key] === value);
+	const arrNama = [];
+	arrName.forEach((name) => {
+		arrNama.push(namaSecurity(name));
+	});
+	return arrNama;
+};

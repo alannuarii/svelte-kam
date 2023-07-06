@@ -1,12 +1,16 @@
+<script>
+	import { getPiket } from '../js/jadwal';
+
+	let names = getPiket();
+</script>
+
 <h6>Petugas Piket</h6>
-<div class="d-flex align-items-center">
-	<i class="fi fi-sr-user" />
-	<p>Imran Mokodompit</p>
-</div>
-<div class="d-flex align-items-center">
-	<i class="fi fi-sr-user" />
-	<p>Refiansa Mokodompit</p>
-</div>
+{#each names as nama}
+	<div class="d-flex align-items-center">
+		<i class="fi fi-sr-user" />
+		<p>{nama}</p>
+	</div>
+{/each}
 
 <style>
 	i {
