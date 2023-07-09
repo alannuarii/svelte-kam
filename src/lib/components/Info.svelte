@@ -2,7 +2,7 @@
 	<p>
 		Patroli telah dilaksanakan oleh <span>Imran Mokodompit</span> pada pukul <span>08:00 WITA</span>
 	</p>
-	<i class="fi fi-sr-info" />
+	<a href="/kOiNOcS7nU"><i class="fi fi-sr-info" /></a>
 </div>
 
 <style>

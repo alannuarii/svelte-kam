@@ -1,5 +1,6 @@
 <script>
 	import { onMount, onDestroy } from 'svelte';
+
 	let mediaStream;
 	let videoEl;
 	let hiddenInput;
@@ -25,9 +26,13 @@
 	}
 
 	function stopWebcam() {
-		const tracks = mediaStream.getTracks();
-		tracks.forEach((track) => track.stop());
-		videoEl.srcObject = null;
+		if (mediaStream) {
+			const tracks = mediaStream.getTracks();
+			tracks.forEach((track) => track.stop());
+		}
+		if (videoEl) {
+			videoEl.srcObject = null;
+		}
 		resetBtn = true;
 		takeSnapshotBtn = false;
 	}
@@ -62,7 +67,7 @@
 			height="320"
 			class="position-absolute top-50 start-50 translate-middle"
 		/>
-		<input type="hidden" bind:this={hiddenInput} />
+		<input type="hidden" name="foto" bind:this={hiddenInput} />
 		<!-- svelte-ignore a11y-missing-attribute -->
 	</div>
 	<div class="box position-relative">
@@ -78,7 +83,7 @@
 </div>
 
 <style>
-	.webcam{
+	.webcam {
 		border-radius: 20px;
 	}
 	video,

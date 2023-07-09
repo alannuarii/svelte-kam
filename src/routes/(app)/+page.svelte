@@ -5,6 +5,29 @@
 	import Personil from '../../lib/components/Personil.svelte';
 	import Times from '../../lib/components/Times.svelte';
 	import Info from '../../lib/components/Info.svelte';
+
+	const menuRow1 = [
+		{
+			path: '/patroli',
+			icon: 'fi fi-rr-refresh',
+			name: 'Patroli'
+		},
+		{
+			path: '/apel',
+			icon: 'fi fi-rr-users-alt',
+			name: 'Apel'
+		},
+		{
+			path: '/cctv',
+			icon: 'fi fi-rr-camera-cctv',
+			name: 'CCTV'
+		},
+		{
+			path: '/tamu',
+			icon: 'fi fi-rr-person-simple',
+			name: 'Tamu'
+		}
+	];
 </script>
 
 <section>
@@ -22,8 +45,12 @@
 	<div class="mx-3 py-2">
 		<Info />
 	</div>
-	<div class="py-5">
-		<Menu />
+	<div class="py-5 text-center">
+		<div class="d-flex justify-content-evenly">
+			{#each menuRow1 as menu}
+				<Menu path={menu.path} icon={menu.icon} name={menu.name} />
+			{/each}
+		</div>
 	</div>
 	<div>
 		<Bottom />
