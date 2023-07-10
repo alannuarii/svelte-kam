@@ -8,7 +8,7 @@
 	<meta name="description" content="Sekap" />
 </svelte:head>
 
-<main id="mobile" class="d-sm-none">
+<main id="mobile" class="d-sm-none overflow-x-hidden">
 	<div>
 		<Header />
 	</div>

@@ -49,8 +49,6 @@ export const rentangWaktu = () => {
 	const jam = sekarang.getHours();
 	// const menit = sekarang.getMinutes();
 
-	console.log(jam)
-
 	if (jam >= 0 && jam < 8) {
 		return 'm';
 	} else if (jam >= 8 && jam < 16) {

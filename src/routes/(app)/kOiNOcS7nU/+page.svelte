@@ -9,10 +9,10 @@
 			visibility: ''
 		},
 		{
-			path: '/apel',
-			icon: 'fi fi-rr-users-alt',
-			name: 'Apel',
-			visibility: 'invisible'
+			path: '/kOiNOcS7nU/foto-training',
+			icon: 'fi fi-rr-folder',
+			name: 'Foto Training',
+			visibility: ''
 		},
 		{
 			path: '/cctv',
