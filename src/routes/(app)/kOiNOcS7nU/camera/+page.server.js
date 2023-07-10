@@ -13,7 +13,7 @@ export const actions = {
 			parsedData[name] = value;
 		}
 
-		const res = await fetch(`${API_ENDPOINT}/post/photo-trainin`, {
+		const res = await fetch(`${API_ENDPOINT}/post/photo-training`, {
 			method: 'POST',
 			body: JSON.stringify(parsedData),
 			headers: {
