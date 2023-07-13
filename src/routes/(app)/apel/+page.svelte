@@ -24,9 +24,13 @@
 		}
 	}
 
-	onMount(async() => {
+	onMount(async () => {
 		getWebcam();
-    console.log(faceapi.nets)
+		await Promise.all([
+			faceapi.nets.ssdMobilenetv1.loadFromDisk('../../lib/models'),
+			faceapi.nets.faceLandmark68Net.loadFromDisk('../../lib/models'),
+			faceapi.nets.faceRecognitionNet.loadFromDisk('../../lib/models')
+		]);
 	});
 
 	onDestroy(() => {
