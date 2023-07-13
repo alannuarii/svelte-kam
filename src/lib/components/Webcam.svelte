@@ -26,7 +26,8 @@
 	}
 
 	function stopWebcam() {
-		if (mediaStream) {
+		if (videoEl && videoEl.srcObject) {
+			const mediaStream = videoEl.srcObject;
 			const tracks = mediaStream.getTracks();
 			tracks.forEach((track) => track.stop());
 		}
