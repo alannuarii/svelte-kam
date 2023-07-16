@@ -1,9 +1,10 @@
 <script>
-	import { API_ENDPOINT } from '../../../../lib/js/endpoint';
 	import ZoomDelete from '../../../../lib/components/ZoomDelete.svelte';
 	export let data;
 
 	const photos = data.data.length > 0 ? data.data : [];
+
+	console.log(photos)
 </script>
 
 <div class="px-3">
@@ -11,13 +12,13 @@
 		{#each photos as photo}
 			<div class="col-6">
 				<img
-					src={`${API_ENDPOINT}${photo.url}`}
+					src={`${photo.url}`}
 					class="img-fluid"
 					data-bs-toggle="modal"
 					data-bs-target="#{photo.filename}"
 					alt=""
 				/>
-				<ZoomDelete image={`${API_ENDPOINT}${photo.url}`} id={photo.filename} url={photo.url} />
+				<ZoomDelete image={`${photo.url}`} id={photo.filename} url={photo.url} />
 				<p class="text-center fst-italic">{photo.label}</p>
 			</div>
 		{/each}
