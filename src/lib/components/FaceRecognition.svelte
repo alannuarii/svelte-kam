@@ -4,7 +4,6 @@
 
 	let videoEl;
 	let canvas;
-	let arrNames = [];
 
 	async function getWebcam() {
 		const mediaStream = await navigator.mediaDevices.getUserMedia({ video: true });
@@ -12,36 +11,15 @@
 		videoEl.play();
 	}
 
-	// function stopWebcam() {
-	// 	if (videoEl && videoEl.srcObject) {
-	// 		const mediaStream = videoEl.srcObject;
-	// 		const tracks = mediaStream.getTracks();
-	// 		tracks.forEach((track) => track.stop());
-	// 	}
-	// 	if (videoEl) {
-	// 		videoEl.srcObject = null;
-	// 	}
-	// }
-
 	function stopWebcam() {
-		if (canvas && canvas.getContext) {
-			const context = canvas.getContext('2d');
-			context.clearRect(0, 0, canvas.width, canvas.height);
-		}
-
 		if (videoEl && videoEl.srcObject) {
 			const mediaStream = videoEl.srcObject;
 			const tracks = mediaStream.getTracks();
 			tracks.forEach((track) => track.stop());
 		}
-
 		if (videoEl) {
 			videoEl.srcObject = null;
 		}
-
-		setTimeout(() => {
-			location.reload();
-		}, 1000);
 	}
 
 	function getLabeledFaceDescriptions() {
@@ -74,7 +52,7 @@
 
 		setInterval(async () => {
 			const detections = await faceapi
-				.detectAllFaces(videoEl, new faceapi.SsdMobilenetv1Options({ minConfidence: 0.5 }))
+				.detectAllFaces(videoEl)
 				.withFaceLandmarks()
 				.withFaceDescriptors();
 
@@ -95,28 +73,16 @@
 					box.bottomLeft
 				).draw(canvas);
 			});
-
-			for (let i = 0; i < results.length; i++) {
-				if (
-					!arrNames.includes(results[i]._label) &&
-					results[i]._label !== 'unknown' &&
-					results[i]._distance <= 0.4
-				) {
-					arrNames.push(results[i]._label);
-					arrNames = [...arrNames];
-				}
-			}
+			console.log(results);
 		}, 100);
 	}
 
 	onMount(async () => {
 		videoEl = document.querySelector('video');
 		canvas = document.querySelector('canvas');
-		await Promise.all([
-			faceapi.nets.ssdMobilenetv1.loadFromUri('/models'),
-			faceapi.nets.faceLandmark68Net.loadFromUri('/models'),
-			faceapi.nets.faceRecognitionNet.loadFromUri('/models')
-		]);
+		await faceapi.nets.ssdMobilenetv1.loadFromUri('/models');
+		await faceapi.nets.faceLandmark68Net.loadFromUri('/models');
+		await faceapi.nets.faceRecognitionNet.loadFromUri('/models');
 		getWebcam();
 		recognizeFaces();
 	});
@@ -124,8 +90,6 @@
 	onDestroy(() => {
 		stopWebcam();
 	});
-
-	$: console.log(arrNames);
 </script>
 
 <div class="container">
