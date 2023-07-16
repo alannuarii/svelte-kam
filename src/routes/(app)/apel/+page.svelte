@@ -8,35 +8,7 @@
 	async function getWebcam() {
 		const mediaStream = await navigator.mediaDevices.getUserMedia({ video: true });
 		videoEl.srcObject = mediaStream;
-
-		videoEl.addEventListener('loadedmetadata', () => {
-			videoEl.play();
-
-			const displaySize = { width: videoEl.videoWidth, height: videoEl.videoHeight };
-			faceapi.matchDimensions(canvas, displaySize);
-
-			setInterval(async () => {
-				if (videoEl && videoEl.srcObject && !videoEl.paused && !videoEl.ended) {
-					const detections = await faceapi
-						.detectAllFaces(videoEl)
-						.withFaceLandmarks()
-						.withFaceDescriptors();
-
-					const resizedDetections = faceapi.resizeResults(detections, displaySize);
-					canvas.getContext('2d').clearRect(0, 0, canvas.width, canvas.height);
-
-					resizedDetections.forEach((detection) => {
-						const box = detection.detection.box;
-						const drawOptions = {
-							lineWidth: 2,
-							boxColor: 'red'
-						};
-						const drawBox = new faceapi.draw.DrawBox(box, drawOptions);
-						drawBox.draw(canvas);
-					});
-				}
-			}, 100);
-		});
+		videoEl.play();
 	}
 
 	function stopWebcam() {
@@ -50,6 +22,61 @@
 		}
 	}
 
+	function getLabeledFaceDescriptions() {
+		const labels = ['Alan', 'Gagi'];
+		return Promise.all(
+			labels.map(async (label) => {
+				const descriptions = [];
+				for (let i = 1; i <= 2; i++) {
+					const img = await faceapi.fetchImage(`training/${label}/${i}.jpeg`);
+					const detections = await faceapi
+						.detectSingleFace(img)
+						.withFaceLandmarks()
+						.withFaceDescriptor();
+					descriptions.push(detections.descriptor);
+				}
+				return new faceapi.LabeledFaceDescriptors(label, descriptions);
+			})
+		);
+	}
+
+	async function recognizeFaces() {
+		const labeledFaceDescriptors = await getLabeledFaceDescriptions();
+		const faceMatcher = new faceapi.FaceMatcher(labeledFaceDescriptors, 0.6);
+
+		canvas.width = videoEl.videoWidth;
+		canvas.height = videoEl.videoHeight;
+		const displaySize = { width: videoEl.videoWidth, height: videoEl.videoHeight };
+
+		faceapi.matchDimensions(canvas, displaySize);
+
+		setInterval(async () => {
+			const detections = await faceapi
+				.detectAllFaces(videoEl)
+				.withFaceLandmarks()
+				.withFaceDescriptors();
+
+			const resizedDetections = faceapi.resizeResults(detections, displaySize);
+
+			canvas.getContext('2d').clearRect(0, 0, canvas.width, canvas.height);
+			faceapi.draw.drawDetections(canvas, resizedDetections);
+			// faceapi.draw.drawFaceLandmarks(canvas, resizedDetections);
+
+			const results = resizedDetections.map((d) => faceMatcher.findBestMatch(d.descriptor));
+
+			results.forEach((result, i) => {
+				const box = resizedDetections[i].detection.box;
+				const { label, distance } = result;
+
+				new faceapi.draw.DrawTextField(
+					[`${label} (${Math.round(distance * 100) / 100})`],
+					box.bottomLeft
+				).draw(canvas);
+			});
+			console.log(results);
+		}, 100);
+	}
+
 	onMount(async () => {
 		videoEl = document.querySelector('video');
 		canvas = document.querySelector('canvas');
@@ -57,6 +84,7 @@
 		await faceapi.nets.faceLandmark68Net.loadFromUri('/models');
 		await faceapi.nets.faceRecognitionNet.loadFromUri('/models');
 		getWebcam();
+		recognizeFaces();
 	});
 
 	onDestroy(() => {
@@ -67,7 +95,7 @@
 <div class="container">
 	<!-- svelte-ignore a11y-media-has-caption -->
 	<video bind:this={videoEl} />
-	<canvas />
+	<canvas bind:this={canvas} />
 </div>
 
 <style>
