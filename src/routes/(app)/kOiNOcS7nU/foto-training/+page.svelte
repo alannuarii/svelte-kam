@@ -3,8 +3,6 @@
 	export let data;
 
 	const photos = data.data.length > 0 ? data.data : [];
-
-	console.log(photos)
 </script>
 
 <div class="px-3">
