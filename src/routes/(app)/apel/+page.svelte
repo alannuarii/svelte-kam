@@ -12,17 +12,6 @@
 		videoEl.play();
 	}
 
-	// function stopWebcam() {
-	// 	if (videoEl && videoEl.srcObject) {
-	// 		const mediaStream = videoEl.srcObject;
-	// 		const tracks = mediaStream.getTracks();
-	// 		tracks.forEach((track) => track.stop());
-	// 	}
-	// 	if (videoEl) {
-	// 		videoEl.srcObject = null;
-	// 	}
-	// }
-
 	function stopWebcam() {
 		if (canvas && canvas.getContext) {
 			const context = canvas.getContext('2d');
@@ -128,10 +117,24 @@
 	$: console.log(arrNames);
 </script>
 
-<div class="container">
+<div class="container mb-3">
 	<!-- svelte-ignore a11y-media-has-caption -->
 	<video bind:this={videoEl} />
 	<canvas bind:this={canvas} />
+</div>
+<div class="p-3">
+	<form method="POST">
+		<div class="mb-4">
+			<h6>Keluar</h6>
+			{#each arrNames as name}
+				<span class="border p-2">{name}</span>
+			{/each}
+		</div>
+		<div class="d-flex justify-content-center">
+			<button type="reset" class="btn reset">Reset</button>
+			<button type="submit" class="btn submit">Kirim</button>
+		</div>
+	</form>
 </div>
 
 <style>
@@ -140,8 +143,8 @@
 		display: flex;
 		justify-content: center;
 		align-items: center;
-		height: 100vh;
 		overflow: hidden;
+		height: 100vh;
 	}
 
 	video {
@@ -157,5 +160,22 @@
 		top: 0;
 		left: 0;
 		width: 100%;
+	}
+	.submit {
+		background-color: #2ec4b6;
+		color: #ffffff;
+		border-radius: 0 10px 10px 0;
+		width: 30vw;
+		height: 45px;
+	}
+	.reset {
+		border-color: #2ec4b6;
+		color: #2ec4b6;
+		border-radius: 10px 0 0 10px;
+		width: 30vw;
+		height: 45px;
+	}
+	span {
+		border-radius: 10px;
 	}
 </style>
