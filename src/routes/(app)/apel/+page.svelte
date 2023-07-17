@@ -1,12 +1,11 @@
 <script>
 	import { getPiket } from '../../../lib/js/jadwal';
-
-	let names = getPiket();
 	import { onMount, onDestroy } from 'svelte';
 	import * as faceapi from 'face-api.js';
 
 	let videoEl;
 	let canvas;
+	let names = getPiket();
 	let arrNames = [];
 
 	async function getWebcam() {
@@ -16,11 +15,6 @@
 	}
 
 	function stopWebcam() {
-		if (canvas && canvas.getContext) {
-			const context = canvas.getContext('2d');
-			context.clearRect(0, 0, canvas.width, canvas.height);
-		}
-
 		if (videoEl && videoEl.srcObject) {
 			const mediaStream = videoEl.srcObject;
 			const tracks = mediaStream.getTracks();
