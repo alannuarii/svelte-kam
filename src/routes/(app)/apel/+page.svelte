@@ -92,7 +92,7 @@
 				if (
 					!arrNames.includes(results[i]._label) &&
 					results[i]._label !== 'unknown' &&
-					results[i]._distance <= 0.4
+					results[i]._distance <= 0.5
 				) {
 					arrNames.push(results[i]._label);
 					arrNames = [...arrNames];
