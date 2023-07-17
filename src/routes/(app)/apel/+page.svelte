@@ -1,4 +1,7 @@
 <script>
+	import { getPiket } from '../../../lib/js/jadwal';
+
+	let names = getPiket();
 	import { onMount, onDestroy } from 'svelte';
 	import * as faceapi from 'face-api.js';
 
@@ -113,8 +116,6 @@
 	onDestroy(() => {
 		stopWebcam();
 	});
-
-	$: console.log(arrNames);
 </script>
 
 <div class="container mb-3">
@@ -125,10 +126,22 @@
 <div class="p-3">
 	<form method="POST">
 		<div class="mb-4">
-			<h6>Keluar</h6>
-			{#each arrNames as name}
-				<span class="border p-2">{name}</span>
-			{/each}
+			<div class="mb-3">
+				<h6>Piket Masuk</h6>
+				<div class="border py-3 px-2">
+					{#each arrNames as name}
+						<span class="border p-2 me-2">{name}</span>
+					{/each}
+				</div>
+			</div>
+			<div>
+				<h6>Piket Keluar</h6>
+				<div class="border py-3 px-2">
+					{#each names as name}
+						<span class="border p-2 me-2">{name}</span>
+					{/each}
+				</div>
+			</div>
 		</div>
 		<div class="d-flex justify-content-center">
 			<button type="reset" class="btn reset">Reset</button>
@@ -144,7 +157,7 @@
 		justify-content: center;
 		align-items: center;
 		overflow: hidden;
-		height: 100vh;
+		height: 70vh;
 	}
 
 	video {
@@ -175,7 +188,12 @@
 		width: 30vw;
 		height: 45px;
 	}
-	span {
+	.border {
 		border-radius: 10px;
+	}
+	span {
+		background-color: #2b2d42;
+		color: #ffffff;
+		border-color: #2b2d42;
 	}
 </style>
