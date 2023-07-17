@@ -157,7 +157,7 @@
 		justify-content: center;
 		align-items: center;
 		overflow: hidden;
-		height: 70vh;
+		height: 50vh;
 	}
 
 	video {
